@@ -67,27 +67,27 @@
                                             <div class="container">
                                               <div class="row">
                                                 <section class="page col-sm-12">
- <h3 > RQ1: How often can ITest predict files a developer changes for concluding a programming task?</h3>
+ <h3 > RQ1: How often does TestI predict file changes associated with a task?</h3>
 
 <p class='character'><br></p>
 
 <p class='character'><hr></p>
 
- <h4 > On average, ITest can predict more than half of changes in controllers</h4>
+ <h4 > On average, TestI can predict nearly half of the changes in controllers</h4>
 
-<p class='character'>ITest recall for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
+<p class='character'>TestI recall for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
 
 <p align=center><img src='img/evaluation_cf_recall.png' border=1 width=500>
 <p class='character'><hr></p>
 
- <h4 > On average, most files in ITest are not actually changed by tasks, but it does not mean they are not relevant to complete a task</h4>
+ <h4 > On average, most files in TestI are not actually changed by tasks, but it does not mean they are not relevant to complete a task</h4>
 
-<p class='character'>ITest precision for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
+<p class='character'>TestI precision for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
 
 <p align=center><img src='img/evaluation_cf_precision.png' border=1 width=500>
 <p class='character'><hr></p>
 
- <h4 > Our routing mechanism has an insignificant impact on ITest precision and recall</h4>
+ <h4 > Our routing mechanism has an insignificant impact on TestI precision and recall</h4>
 
 <p class='character'>Precision and recall measures of NF configuration (no content filtering) when using Rails routes and inferred routes.</p>
 
@@ -98,7 +98,7 @@
 
 <p align= center >
 <table cellspacing=0 border=0>
-<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of ITest when using Rails routes and inferred routes</caption>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of TestI when using Rails routes and inferred routes</caption>
 <tr><td>
 	<table border=0 class=build_conflicts center>
 	<tbody> 
@@ -146,12 +146,12 @@
 
 <p class='character'><hr></p>
 
- <h4 > On average, the higher the test coverage per task, the more superior the ITest predictive ability</h4>
+ <h4 > On average, the higher the test coverage per task, the more superior the TestI predictive ability</h4>
 
 
 <p align= center >
 <table cellspacing=0 border=0>
-<caption align=top class=captiondataframe>Correlation between test coverage per task and ITest predictive ability</caption>
+<caption align=top class=captiondataframe>Correlation between test coverage per task and TestI predictive ability</caption>
 <tr><td>
 	<table border=0 class=build_conflicts center>
 	<tbody> 
@@ -199,7 +199,7 @@
 
 <p class='character'><hr></p>
 
- <h4 > Excluding files accessed by test precondition and postcondition decreases the predictive ability of ITest</h4>
+ <h4 > Excluding files accessed by test precondition and postcondition decreases the predictive ability of TestI</h4>
 
 <p class='character'>Precision and recall measures of WF configuration (content filtered by when steps) and for NF configuration (no content filtering).</p>
 
@@ -214,7 +214,7 @@
 
 <p align= center >
 <table cellspacing=0 border=0>
-<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of the main configurations of ITest</caption>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test applied to precision and recall measures of the main configurations of TestI</caption>
 <tr><td>
 	<table border=0 class=build_conflicts center>
 	<tbody> 
@@ -278,20 +278,20 @@
 
 <p class='character'><hr></p>
 
- <h4 > ITest performs better as a predictor of changes in controllers</h4>
+ <h4 > TestI performs better as a predictor of changes in controllers</h4>
 
-<p class='character'>Precision values for the 8 possible ITest configurations: NF (no filter), AF (added-filter), CF (controller-filter),
+<p class='character'>Precision values for the 8 possible TestI configurations: NF (no filter), AF (added-filter), CF (controller-filter),
        ACF (added-controller-filter), WF (when-filter), WCF (when-controller-filter), AWF (added-when-filter), AWCF (added-when-controller-filter)</p>
 
 <p align=center><img src='img/evaluation_all_precision.png' border=1 width=500>
-<p class='character'>Recall values for the 8 possible ITest configurations: NF (no filter), AF (added-filter), CF (controller-filter),
+<p class='character'>Recall values for the 8 possible TestI configurations: NF (no filter), AF (added-filter), CF (controller-filter),
        ACF (added-controller-filter), WF (when-filter), WCF (when-controller-filter), AWF (added-when-filter), AWCF (added-when-controller-filter)</p>
 
 <p align=center><img src='img/evaluation_all_recall.png' border=1 width=500>
 
 <p align= center >
 <table cellspacing=0 border=0>
-<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test combined with the Bonferroni correction method applied to precision and recall measures for all configurations of ITest</caption>
+<caption align=top class=captiondataframe>Wilcoxon Signed-Rank test combined with the Bonferroni correction method applied to precision and recall measures for all configurations of TestI</caption>
 <tr><td>
 	<table border=0 class=build_conflicts center>
 	<tbody> 
