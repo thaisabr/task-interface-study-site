@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Predicting files related to a programming task based on acceptance tests</title>
+    <title>Using acceptance tests to predict files changed by programming tasks</title>
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
     
@@ -17,7 +17,7 @@
     <div class="container">
     <div class="row">
     <div class="col-sm-6">
-    <p>Predicting files related to a programming task based on acceptance tests</p>
+    <p>Using acceptance tests to predict files changed by programming tasks</p>
     </div>
     </div>
     </div>
@@ -73,21 +73,19 @@
 
 <p class='character'><hr></p>
 
- <h4 > On average, TestI can predict nearly half of the changes in controllers</h4>
+ <h4 > TestI helps to predict changes in controllers and MVC slices, but not for all tasks</h4>
 
 <p class='character'>TestI recall for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
 
 <p align=center><img src='img/evaluation_cf_recall.png' border=1 width=500>
 <p class='character'><hr></p>
 
- <h4 > On average, most files in TestI are not actually changed by tasks, but it does not mean they are not relevant to complete a task</h4>
-
 <p class='character'>TestI precision for CF configuration (content filtered by controllers) and for NF configuration (no content filtering).</p>
 
 <p align=center><img src='img/evaluation_cf_precision.png' border=1 width=500>
 <p class='character'><hr></p>
 
- <h4 > Our routing mechanism has an insignificant impact on TestI precision and recall</h4>
+ <h4 > Our routing mechanism does not strongly compromise the predictive ability of TestI</h4>
 
 <p class='character'>Precision and recall measures of NF configuration (no content filtering) when using Rails routes and inferred routes.</p>
 
@@ -146,7 +144,7 @@
 
 <p class='character'><hr></p>
 
- <h4 > On average, the higher the test coverage per task, the more superior the TestI predictive ability</h4>
+ <h4 > TestI has higher predictive power for tasks with higher test coverage</h4>
 
 
 <p align= center >
@@ -199,16 +197,16 @@
 
 <p class='character'><hr></p>
 
- <h4 > Excluding files accessed by test precondition and postcondition decreases the predictive ability of TestI</h4>
+ <h4 > Discarding test precondition and postcondition compromises TestI recall with slight improvement in precision</h4>
 
 <p class='character'>Precision and recall measures of WF configuration (content filtered by when steps) and for NF configuration (no content filtering).</p>
 
 <p align=center><img src='img/evaluation_wf.png' border=1 width=500>
 <p class='character'><hr></p>
 
- <h4 > Tests added during tasks execution are more likely to align with tasks</h4>
+ <h4 > Discarding changed tests compromises TestI recall with slight improvement in precision</h4>
 
-<p class='character'>Precision and recall measures of AF configuration (entry tests filtered by added tests) and for NF configuration (no content filtering).</p>
+<p class='character'>Precision and recall measures of TestI computed by considering only created tests (CT) and for NF configuration (no content filtering).</p>
 
 <p align=center><img src='img/evaluation_af.png' border=1 width=500>
 
@@ -224,7 +222,7 @@
 		<th>r</th> 
 	</tr> 
 <tr> 
-<td class=cellinside>TestI-NF Precision = TestI-AF Precision
+<td class=cellinside>TestI-NF Precision = TestI-CT Precision
 </td>
 <td class=cellinside>1.7e-11
 </td>
@@ -232,7 +230,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Recall = TestI-AF Recall
+<td class=cellinside>TestI-NF Recall = TestI-CT Recall
 </td>
 <td class=cellinside>2.0e-33
 </td>
@@ -278,14 +276,16 @@
 
 <p class='character'><hr></p>
 
- <h4 > TestI performs better as a predictor of changes in controllers</h4>
+ <h4 > TestI performs better as a predictor of changes in controllers and MVC slices</h4>
 
-<p class='character'>Precision values for the 8 possible TestI configurations: NF (no filter), AF (added-filter), CF (controller-filter),
-       ACF (added-controller-filter), WF (when-filter), WCF (when-controller-filter), AWF (added-when-filter), AWCF (added-when-controller-filter)</p>
+<p class='character'>Precision values for the 8 possible TestI configurations: NF (no filter), CT (created-tests), CF (controller-filter),
+       CTCF (created-tests-controller-filter), WF (when-filter), WCF (when-controller-filter), CTWF (created-tests-when-filter), 
+       CTWCF (created-tests-when-controller-filter)</p>
 
 <p align=center><img src='img/evaluation_all_precision.png' border=1 width=500>
-<p class='character'>Recall values for the 8 possible TestI configurations: NF (no filter), AF (added-filter), CF (controller-filter),
-       ACF (added-controller-filter), WF (when-filter), WCF (when-controller-filter), AWF (added-when-filter), AWCF (added-when-controller-filter)</p>
+<p class='character'>Recall values for the 8 possible TestI configurations: NF (no filter), CT (created-tests), CF (controller-filter),
+       CTCF (created-tests-controller-filter), WF (when-filter), WCF (when-controller-filter), CTWF (created-tests-when-filter), 
+       CTWCF (created-tests-when-controller-filter)</p>
 
 <p align=center><img src='img/evaluation_all_recall.png' border=1 width=500>
 
@@ -301,7 +301,7 @@
 		<th>r</th> 
 	</tr> 
 <tr> 
-<td class=cellinside>TestI-NF Precision = TestI-AF Precision
+<td class=cellinside>TestI-NF Precision = TestI-CT Precision
 </td>
 <td class=cellinside>4.6e-10
 </td>
@@ -317,7 +317,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Precision = TestI-ACF Precision
+<td class=cellinside>TestI-NF Precision = TestI-CTCF Precision
 </td>
 <td class=cellinside>5.0e-31
 </td>
@@ -333,7 +333,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Precision = TestI-AWF Precision
+<td class=cellinside>TestI-NF Precision = TestI-CTWF Precision
 </td>
 <td class=cellinside>2.3e-08
 </td>
@@ -349,7 +349,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-NF Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>2.7e-28
 </td>
@@ -357,7 +357,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Precision = TestI-CF Precision
+<td class=cellinside>TestI-CT Precision = TestI-CF Precision
 </td>
 <td class=cellinside>1.2e-18
 </td>
@@ -365,7 +365,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Precision = TestI-ACF Precision
+<td class=cellinside>TestI-CT Precision = TestI-CTCF Precision
 </td>
 <td class=cellinside>1.1e-25
 </td>
@@ -373,7 +373,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Precision = TestI-WF Precision
+<td class=cellinside>TestI-CT Precision = TestI-WF Precision
 </td>
 <td class=cellinside>6.7e-01
 </td>
@@ -381,7 +381,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Precision = TestI-AWF Precision
+<td class=cellinside>TestI-CT Precision = TestI-CTWF Precision
 </td>
 <td class=cellinside>2.8e-01
 </td>
@@ -389,7 +389,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Precision = TestI-WCF Precision
+<td class=cellinside>TestI-CT Precision = TestI-WCF Precision
 </td>
 <td class=cellinside>1.8e-26
 </td>
@@ -397,7 +397,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-CT Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>1.4e-23
 </td>
@@ -405,7 +405,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-CF Precision = TestI-ACF Precision
+<td class=cellinside>TestI-CF Precision = TestI-CTCF Precision
 </td>
 <td class=cellinside>7.2e-04
 </td>
@@ -421,7 +421,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-CF Precision = TestI-AWF Precision
+<td class=cellinside>TestI-CF Precision = TestI-CTWF Precision
 </td>
 <td class=cellinside>1.3e-13
 </td>
@@ -437,7 +437,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-CF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-CF Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>2.4e-04
 </td>
@@ -445,7 +445,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Precision = TestI-WF Precision
+<td class=cellinside>TestI-CTCF Precision = TestI-WF Precision
 </td>
 <td class=cellinside>8.9e-25
 </td>
@@ -453,7 +453,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Precision = TestI-AWF Precision
+<td class=cellinside>TestI-CTCF Precision = TestI-CTWF Precision
 </td>
 <td class=cellinside>1.4e-19
 </td>
@@ -461,7 +461,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Precision = TestI-WCF Precision
+<td class=cellinside>TestI-CTCF Precision = TestI-WCF Precision
 </td>
 <td class=cellinside>1.0e+00
 </td>
@@ -469,7 +469,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-CTCF Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>1.0e+00
 </td>
@@ -477,7 +477,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-WF Precision = TestI-AWF Precision
+<td class=cellinside>TestI-WF Precision = TestI-CTWF Precision
 </td>
 <td class=cellinside>5.3e-05
 </td>
@@ -493,7 +493,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-WF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-WF Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>7.1e-27
 </td>
@@ -501,7 +501,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AWF Precision = TestI-WCF Precision
+<td class=cellinside>TestI-CTWF Precision = TestI-WCF Precision
 </td>
 <td class=cellinside>1.8e-24
 </td>
@@ -509,7 +509,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AWF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-CTWF Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>7.4e-23
 </td>
@@ -517,7 +517,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-WCF Precision = TestI-AWCF Precision
+<td class=cellinside>TestI-WCF Precision = TestI-CTWCF Precision
 </td>
 <td class=cellinside>1.0e+00
 </td>
@@ -525,7 +525,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Recall = TestI-AF Recall
+<td class=cellinside>TestI-NF Recall = TestI-CT Recall
 </td>
 <td class=cellinside>5.7e-32
 </td>
@@ -541,7 +541,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Recall = TestI-ACF Recall
+<td class=cellinside>TestI-NF Recall = TestI-CTCF Recall
 </td>
 <td class=cellinside>1.1e-21
 </td>
@@ -557,7 +557,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Recall = TestI-AWF Recall
+<td class=cellinside>TestI-NF Recall = TestI-CTWF Recall
 </td>
 <td class=cellinside>4.2e-61
 </td>
@@ -573,7 +573,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-NF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-NF Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>2.3e-03
 </td>
@@ -581,7 +581,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Recall = TestI-CF Recall
+<td class=cellinside>TestI-CT Recall = TestI-CF Recall
 </td>
 <td class=cellinside>1.6e-52
 </td>
@@ -589,7 +589,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Recall = TestI-ACF Recall
+<td class=cellinside>TestI-CT Recall = TestI-CTCF Recall
 </td>
 <td class=cellinside>2.6e-42
 </td>
@@ -597,7 +597,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Recall = TestI-WF Recall
+<td class=cellinside>TestI-CT Recall = TestI-WF Recall
 </td>
 <td class=cellinside>9.8e-14
 </td>
@@ -605,7 +605,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Recall = TestI-AWF Recall
+<td class=cellinside>TestI-CT Recall = TestI-CTWF Recall
 </td>
 <td class=cellinside>4.1e-52
 </td>
@@ -613,7 +613,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Recall = TestI-WCF Recall
+<td class=cellinside>TestI-CT Recall = TestI-WCF Recall
 </td>
 <td class=cellinside>5.4e-27
 </td>
@@ -621,7 +621,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-CT Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>3.2e-14
 </td>
@@ -629,7 +629,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-CF Recall = TestI-ACF Recall
+<td class=cellinside>TestI-CF Recall = TestI-CTCF Recall
 </td>
 <td class=cellinside>5.1e-17
 </td>
@@ -645,7 +645,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-CF Recall = TestI-AWF Recall
+<td class=cellinside>TestI-CF Recall = TestI-CTWF Recall
 </td>
 <td class=cellinside>1.1e-64
 </td>
@@ -661,7 +661,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-CF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-CF Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>1.8e-32
 </td>
@@ -669,7 +669,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Recall = TestI-WF Recall
+<td class=cellinside>TestI-CTCF Recall = TestI-WF Recall
 </td>
 <td class=cellinside>9.0e-46
 </td>
@@ -677,7 +677,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Recall = TestI-AWF Recall
+<td class=cellinside>TestI-CTCF Recall = TestI-CTWF Recall
 </td>
 <td class=cellinside>4.6e-59
 </td>
@@ -685,7 +685,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Recall = TestI-WCF Recall
+<td class=cellinside>TestI-CTCF Recall = TestI-WCF Recall
 </td>
 <td class=cellinside>1.0e-01
 </td>
@@ -693,7 +693,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-ACF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-CTCF Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>1.3e-22
 </td>
@@ -701,7 +701,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-WF Recall = TestI-AWF Recall
+<td class=cellinside>TestI-WF Recall = TestI-CTWF Recall
 </td>
 <td class=cellinside>5.5e-26
 </td>
@@ -717,7 +717,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-WF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-WF Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>7.9e-27
 </td>
@@ -725,7 +725,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AWF Recall = TestI-WCF Recall
+<td class=cellinside>TestI-CTWF Recall = TestI-WCF Recall
 </td>
 <td class=cellinside>1.5e-56
 </td>
@@ -733,7 +733,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-AWF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-CTWF Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>1.3e-46
 </td>
@@ -741,7 +741,7 @@
 </td></tr>
  
 <tr> 
-<td class=cellinside>TestI-WCF Recall = TestI-AWCF Recall
+<td class=cellinside>TestI-WCF Recall = TestI-CTWCF Recall
 </td>
 <td class=cellinside>4.9e-15
 </td>
